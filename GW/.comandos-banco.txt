@@ -1,0 +1,107 @@
+﻿CREATE TABLE tbCategoria(
+    idCategoria int PRIMARY KEY AUTO_INCREMENT,
+    categoria varchar(40)
+);
+
+
+CREATE TABLE tbTitulo (
+	idTitulo int primary key auto_increment,
+	nomeTitulo varchar(80) not null,
+	autorTitulo varchar(80) not null,
+	anoTitulo varchar(4) not null,
+	descricaoTitulo varchar(2000),
+	idCategoria int,
+	FOREIGN KEY (idCategoria) references tbCategoria (idCategoria)
+);
+
+CREATE TABLE tbNoticia(
+    idNoticia int primary key auto_increment,
+    titNoticia varchar(80),
+    txtNoticia varchar(2000),
+    catNoticia varchar(80),
+    obraNoticia varchar(80)
+);
+
+CREATE TABLE tbAdmin(
+	idAdmin int primary key auto_increment,
+	nomeAdmin varchar(80) not null,
+	emailAdmin varchar(80) not null,
+	senhaAdmin varchar(80) not null
+);
+
+CREATE TABLE tbUsuario(
+	idUsuario int primary key auto_increment,
+	nomeUsuario varchar(80) not null,
+	email varchar(80) not null,
+	senha varchar(80) not null
+);
+
+CREATE TABLE tbAvaliacao(
+	idAvaliacao int primary key auto_increment,
+	nome varchar(80) not null,
+	valor int not null,
+	comentario varchar(200)
+);
+
+CREATE TABLE tbContato(
+	idContato int primary key auto_increment,
+	nomeContato varchar(80) not null,
+	emailContato varchar(80) not null,
+	assuntoContato varchar(80) not null,
+	msgContato varchar(500) not null
+);
+	
+
+
+
+insert into tbAdmin values(null,'Admin','admin@admin.com','Admin');
+
+
+insert into tbUsuario values(null,'Eduardo','eduardo@gmail.com','123456');
+
+
+insert into tbCategoria values(null,'Filme');
+insert into tbCategoria values(null,'Série');
+insert into tbCategoria values(null,'HQ');
+insert into tbCategoria values(null,'Game');
+insert into tbCategoria values(null,'Evento');
+insert into tbCategoria values(null,'Anime');
+
+
+insert into tbTitulo values(null,'Naruto','Masashi Kishimoto','1997','<p>Naruto Uzumaki é um menino que vive em Konohagakure no Sato ou simplesmente Konoha ou Vila Oculta da Folha, a vila 
+ninja do País do Fogo. Quando ainda bebê, Naruto teve aprisionada em seu corpo a Kyuubi no Youko por Minato Namikaze (quarto Hokage, e seu pai), com a finalidade de salvar a Vila da Folha. 
+Desde então, Naruto é visto por muitas pessoas como um monstro, não só pelos familiares das pessoas mortas pela Kyuubi, mas também por pessoas que não toleram suas brincadeiras, já que o 
+mesmo é extremamente hiperativo, incompreendido e solitário. Naruto sonha em se tornar o Hokage de sua vila, um ninja poderoso e respeitado, para assim poder ser reconhecido por todos.</p>',
+6);
+
+insert into tbTitulo values(null,'Shingeki no Kyojin','Hajime Isayama','2009','<p>Várias centenas de anos atrás, os humanos quase foram exterminados por Titãs. Os Titãs têm vários andares 
+de altura, parecem não ter inteligência, devoram seres humanos e, o pior de tudo, parecem fazer isso pelo prazer e não como fonte de alimento.Avancemos para o presente e a cidade não viu 
+um Titã há mais de 100 anos. O adolescente Eren e sua irmã adotiva Mikasa testemunham algo terrível quando as muralhas da cidade são destruídas por um super Titã que surge de lugar nenhum. 
+Enquanto os Titãs menores inundam a cidade, as duas crianças assistem horrorizadas sua mãe ser devorada viva!</p>',6);
+
+insert into tbTitulo values(null,'One Piece','Eiichiro Oda','1997','<p>One Piece começa quando Gol D. Roger, o Rei Dos Piratas que possuiu tudo nesse mundo, antes de ser executado, diz que 
+escondeu o seu tesouro em algum lugar da Grand Line, um oceano extremamente perigoso. Desde então muitos piratas se aventuram pela Grand Line para tentar encontrar o tesouro chamado One 
+Piece. Um deles é Monkey D. Luffy, o garoto que, acidentalmente, comeu uma das Akuma No Mi, a Gomu Gomu No Mi (Fruta da Borracha), e agora ele pode esticar seu corpo como se fosse uma 
+borracha. A jornada dele começa atrás de companheiros e um barco, que ele vai conseguindo pouco a pouco, pois tem um objetivo: Ser o Rei Dos Piratas!</p>',6);
+
+insert into tbTitulo values(null,'Boku no Hero Academia','Kouhei Horikoshi','2014','<p>A série conta a história de Midoriya Izuku, 
+um garoto tímido e fraco cujo sonho é ser um herói. O problema é que ele vive num mundo repleto de pessoas com super poderes, 
+mas ele mesmo não tem poder algum. No entanto, ele não desiste de seu grande sonho e fará de todo o possível para ser o maior 
+herói que o mundo já conheceu!</p>',6);
+
+
+insert into tbNoticia values(null,'Diretor de Overwatch se diz aberto para uma versão no Switch','<p>Ao ser entrevistado pelo 
+My Nintendo News, Jeff Kaplan, diretor de Overwatch, disse estar aberto à possibilidade de uma versão do jogo para o Nintendo 
+Switch.</p><p>“Qualquer coisa está dentro do reino da possibilidade”, diz Stillwell. “Nossa equipe recebeu a tarefa de trabalhar
+ nisso. Se a Team 4 (desenvolvedora de Overwatch) pegar essa tarefa, isso é com eles. No momento, Diablo é nosso único foco no 
+Switch.”</p><p>“Nós sempre vamos explorar uma plataforma se acreditarmos que é algo viável de se fazer. Estamos com a cabeça 
+aberta”, acrescentou, deixando claro que não existem planos concretos para isso ainda.</p><p>Overwatch está disponível para PS4,
+ Xbox One e PC.</p>','Game','Overwatch');
+
+insert into tbNoticia values(null,'HQ','<p>Hq</p>','HQ','...');
+
+
+insert into tbContato values(null,'João da Silva','joao@gmail.com','Mensagem 1','Mensagem 1');
+insert into tbContato values(null,'Silvio Santos','silvio@gmail.com','Mensagem 2','Mensagem 2');
+insert into tbContato values(null,'Josney','josney@gmail.com','Mensagem 3','Mensagem 3');
+insert into tbContato values(null,'Liam','liam@gmail.com','Mensagem 4','Mensagem 4');
